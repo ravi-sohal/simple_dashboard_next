@@ -42,7 +42,7 @@ const get_sales = () => {
   }))
 }
 
-const get_config = ({s, xf, yf, sf}) => {
+const get_config = (s, xf, yf, sf) => {
   return {
     data: s,
     xField: xf,
