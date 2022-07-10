@@ -1,6 +1,5 @@
-import transactions from '../lib/transactions'
+import generate from '../lib/generate'
 import chart from '../lib/chart'
-import { DarkThemeToggle } from 'flowbite-react'
 import {
   Area,
   Bar,
@@ -9,10 +8,11 @@ import {
 } from '@ant-design/plots'
 
 export default function Index() {
-  const sales = transactions.dump(1000)
-  const products = [... new Set(sales.map(s => s.device))]
+  // Generate sales
+  const sales = generate.transactions(1000)
 
-  const datewise_sales = chart.prep_data(sales, 'count', 'date', 'name')
+  const products = [... new Set(sales.map(s => s.device))]
+  const top_products = sales.sort((a, b) => b.count - a.count).slice(0, 4)
 
   return (
     <>
@@ -21,7 +21,7 @@ export default function Index() {
       </h1>
       
       <div className="grid grid-cols-1 md:grid-cols-1">
-        <Bar {...chart.get_config(datewise_sales)} />
+        <Bar {...chart.config(sales, 'count', 'date', 'name')} />
       </div>
     </>
   )
