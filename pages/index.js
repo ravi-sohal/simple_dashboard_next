@@ -1,5 +1,5 @@
-import transactions from './lib/transactions'
-import chart from './lib/chart'
+import transactions from '../lib/transactions'
+import chart from '../lib/chart'
 import {
   Area,
   Bar,
@@ -14,5 +14,5 @@ export default function Index() {
 
   const datewise_sales = chart.prep_data(sales, 'date', 'count', 'product')
 
-  return <Line {...chart.get_config(datewise_sales)} />
+  return <Column {...chart.get_config(datewise_sales)} />
 }
