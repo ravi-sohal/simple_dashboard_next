@@ -1,4 +1,5 @@
 // import sales from '../sales.json'
+import Image from 'next/image'
 import generate from '../lib/generate'
 import count from '../lib/count'
 import table from '../components/table'
@@ -12,13 +13,15 @@ export default function Index() {
   const best_seller = sales_by_devices.sort((a, b) => a.count - b.count)[0].name
   return (
     <div className='p-6 px-10'>
-      <div class='mb-6'>
-        <img
+      <div className='mb-6'>
+        <Image
           src='https://www.clipartmax.com/png/full/184-1849415_apple-logo-white-512x512-icon-apple-icon-png-white.png'
-          class='max-w-9 h-11'
+          className='max-w-9 h-11'
+          width='40px'
+          height='45px'
         />
       </div>
-      <div class='grid grid-cols-2 gap-4'>
+      <div className='grid grid-cols-2 gap-4'>
         <div>
           <tiny.line
             data={sales_by_day.map(s => s.count)}
