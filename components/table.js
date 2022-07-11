@@ -14,7 +14,7 @@ const main = (props) => {
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-800 dark:text-gray-400">
           <tr>
-            {headers.map(header => (<th scope="col" className="px-6 py-3">{header}</th>)) ?? null}
+            {headers.map((header, i) => (<th key={i} scope="col" className="px-6 py-3">{header}</th>)) ?? null}
           </tr>
         </thead>
         <tbody>
@@ -32,6 +32,8 @@ const main = (props) => {
   )
 }
 
-export default {
+const exports = {
   main
 }
+
+export default exports

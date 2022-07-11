@@ -61,8 +61,10 @@ const text = (props) => {
   )
 }
 
-export default {
+const exports = {
   area,
   line,
   text
 }
+
+export default exports
