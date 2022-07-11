@@ -3,22 +3,22 @@ import {
   Flowbite
 } from 'flowbite-react'
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
   return (
     <Flowbite
-      // theme={{
-      //   theme: {
-      //     alert: {
-      //       color: {
-      //         primary: 'bg-primary'
-      //       }
-      //     }
-      //   }
-      // }}
+      theme={{
+        theme: {
+          alert: {
+            color: {
+              primary: 'bg-primary'
+            }
+          }
+        }
+      }}
     >
       <Component {...pageProps} />
     </Flowbite>
   )
 }
 
-export default MyApp
+export default App

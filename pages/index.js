@@ -1,28 +1,72 @@
+// import sales from '../sales.json'
 import generate from '../lib/generate'
-import chart from '../lib/chart'
-import {
-  Area,
-  Bar,
-  Line,
-  Column
-} from '@ant-design/plots'
+import count from '../lib/count'
+import table from '../components/table'
+import tiny from '../components/chart/tiny'
 
 export default function Index() {
-  // Generate sales
-  const sales = generate.transactions(1000)
+  const sales = generate.sales(1000)
+  const sales_by_day = count.by('date', sales)
+  const sales_by_devices = count.by('device', sales)
 
-  const products = [... new Set(sales.map(s => s.device))]
-  const top_products = sales.sort((a, b) => b.count - a.count).slice(0, 4)
-
+  const best_seller = sales_by_devices.sort((a, b) => a.count - b.count)[0].name
   return (
-    <>
-      <h1 className="text-3xl font-bold">
-        Retail Sales Analytics
-      </h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-1">
-        <Bar {...chart.config(sales, 'count', 'date', 'name')} />
+    <div className='p-6 px-10'>
+      <div class='mb-6'>
+        <img
+          src='https://www.clipartmax.com/png/full/184-1849415_apple-logo-white-512x512-icon-apple-icon-png-white.png'
+          class='max-w-9 h-11'
+        />
       </div>
-    </>
+      <div class='grid grid-cols-2 gap-4'>
+        <div>
+          <tiny.line
+            data={sales_by_day.map(s => s.count)}
+            title={'Sales'}
+            text={
+              'Daily Sales Average $' + Math.ceil(
+                sales_by_day
+                  .map(s => s.count)
+                  .reduce((t, a) => t + a) / sales_by_day.length
+              )
+            }
+          />
+        </div>
+        <div>
+          {/* <Tiny.Line
+            data={
+              daily_count(
+                sales,
+                dates,
+                top_product
+              )
+            }
+            title={'Top Seller'}
+            text={top_product}
+          /> */}
+        </div>
+        <div>
+          <table.main
+            title='Top Sellers'
+            headers={[
+              'Device',
+              'Sales'
+            ]}
+            columns={[
+              'element',
+              'count'
+            ]}
+            data={
+              sales_by_devices
+                .sort((a, b) => b.count - a.count)
+                .slice(0, 5)
+            }
+          />
+        </div>
+        <div>
+
+        </div>
+      </div>
+    </div>
   )
 }
