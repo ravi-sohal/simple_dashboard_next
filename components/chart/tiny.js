@@ -18,10 +18,10 @@ const config = (data) => ({
 
 const area = (props) => {
   return (
-    <div class="w-full block bg-white rounded-md dark:bg-gray-800 ">
+    <div className="w-full block bg-white rounded-md dark:bg-gray-800 ">
       <div className='p-6'>
-        <p class="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <p className="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {props.text}
         </h5>
       </div>
@@ -34,10 +34,10 @@ const area = (props) => {
 
 const line = (props) => {
   return (
-    <div class="w-full block bg-white rounded-md dark:bg-gray-800 ">
+    <div className="w-full block bg-white rounded-md dark:bg-gray-800 ">
       <div className='p-6'>
-        <p class="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <p className="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {props.text}
         </h5>
       </div>
@@ -50,10 +50,10 @@ const line = (props) => {
 
 const text = (props) => {
   return (
-    <div class="w-full block bg-white rounded-md dark:bg-gray-800 ">
+    <div className="w-full block bg-white rounded-md dark:bg-gray-800 ">
       <div className='p-6'>
-        <p class="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
-        <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+        <p className="font-normal text-gray-700 dark:text-gray-200">{props.title}</p>
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           {props.text}
         </h5>
       </div>
