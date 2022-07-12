@@ -12,6 +12,8 @@ export default function Index() {
   
   const sales = generate.sales(1500)
 
+  const sales_target = Math.floor(Math.random() * 100) / 100
+
   const sales_by_day = count.by('date', sales)
 
   const total_sales = sales.reduce((t, s) => t + s.price, 0)
@@ -28,7 +30,7 @@ export default function Index() {
   const group_by_devices = group.by(['device'], sales)
 
   const top_device = sales_by_devices
-    .sort((a, b) => a.count - b.count)[0].element
+    .sort((a, b) => b.count - a.count)[0].element
 
   const top_device_daily_sales = count.by(
       'date', 
@@ -40,7 +42,7 @@ export default function Index() {
   const group_by_agents = group.by(['agent'], sales)
 
   const top_agent = sales_by_agents
-    .sort((a, b) => a.count - b.count)[0].element
+    .sort((a, b) => b.count - a.count)[0].element
 
   const top_agent_daily_sales = count.by(
       'date', 
@@ -59,7 +61,7 @@ export default function Index() {
       <div className='mb-4'>
         <tiny.progress
           title='Sales Target'
-          percent={0.55}
+          percent={sales_target}
         />
       </div>
       <div className="flex flex-row space-x-4">
