@@ -48,7 +48,7 @@ export default function Index() {
     )
   
   return (
-    <div class="container m-auto p-4">
+    <div className="container m-auto p-4">
       <div className='mb-6'>
         <Image
           src={logo}
@@ -62,8 +62,8 @@ export default function Index() {
           percent={0.55}
         />
       </div>
-      <div class="flex flex-row space-x-4">
-        <div class="flex w-full flex-col space-y-4">
+      <div className="flex flex-row space-x-4">
+        <div className="flex w-full flex-col space-y-4">
           <div>
             <tiny.text
               title={'Total Sales'}
@@ -94,7 +94,7 @@ export default function Index() {
             />
           </div>
         </div>
-        <div class="flex w-full flex-col space-y-4">
+        <div className="flex w-full flex-col space-y-4">
           <div>
             <tiny.line
               data={top_device_daily_sales.map(s => s.count)}
@@ -121,7 +121,7 @@ export default function Index() {
             />
           </div>
         </div>
-        <div class="flex w-full flex-col space-y-4">
+        <div className="flex w-full flex-col space-y-4">
           <div>
             <tiny.line
               data={top_agent_daily_sales.map(s => s.count)}
